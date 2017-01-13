@@ -1,5 +1,4 @@
 var fs = require('fs');
-var config = getConfig();
 
 /**
  * This callback handle the response request by getActiveWindow function
@@ -24,6 +23,7 @@ exports.getActiveWindow = function(callback,repeats,interval){
     repeats = '\\-1';
   }
 
+  var config = getConfig();
   parameters  = config.parameters;
   parameters.push(repeats);
   parameters.push(process.platform == 'win32' ? (interval * 1000 | 0) : interval);
